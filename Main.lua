@@ -6,7 +6,7 @@ repeat task.wait() until game:IsLoaded();
 _G.start = os.clock();
 
 local ids = {
-    ["111111111"] = "https://raw.githubusercontent.com/danesplex224466881010/DykeHub/game"
+    ["111111111"] = "https://raw.githubusercontent.com/danesplex224466881010/DykeHub/main/game"
 }
 
 
