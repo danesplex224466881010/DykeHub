@@ -1,3 +1,4 @@
+_G.KeyEntered = false
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
@@ -6,22 +7,22 @@ local Player = game.Players.LocalPlayer
 local Window = OrionLib:MakeWindow({Name = "Dyke Hub |"..Player.UserId.."メ", HidePremium = true, IntroEnabled = false})
 
 OrionLib:MakeNotification({
-	Name = "Dyke Hub | "..Player.UserId.."メ",
-	Content = "Welcome "..Player.Name..", our key can be found in our discord server.",
-	Image = "rbxassetid://4483345998",
-	Time = 5
+    Name = "Dyke Hub | "..Player.UserId.."メ",
+    Content = "Welcome "..Player.Name..", our key can be found in our discord server.",
+    Image = "rbxassetid://4483345998",
+    Time = 5
 })
 
 _G.Input = "string"
 
 local KeyTab = Window:MakeTab({
-	Name = "Key",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+    Name = "Key",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
 })
 
 local KeySection = KeyTab:AddSection({
-	Name = "Key"
+    Name = "Key"
 })
 
 KeySection:AddTextbox({
@@ -34,16 +35,20 @@ KeySection:AddTextbox({
 })
 
 KeySection:AddButton({
-	Name = "Check Key",
-	Callback = function()
-      	if _G.KeyInput == "TestKey123" then
+    Name = "Check Key",
+    Callback = function()
+          if _G.KeyInput == "TestKey123" then
             OrionLib:MakeNotification({
                 Name = "Dyke Hub | "..Player.UserId.."メ",
                 Content = "Customer key accepted.. Main Hub loading..",
                 Image = "rbxassetid://4483345998",
                 Time = 3
             })
-            OrionLib:Destroy()
+            _G.KeyEntered = true
+            wait(1)
+            game.CoreGui.Orion:Destroy()
+            wait(1)
+            loadstring(game:HttpGet(('https://raw.githubusercontent.com/danesplex224466881010/DykeHub/main/Main.lua'),true))()
         elseif _G.KeyInput == "AdminKey" then
             OrionLib:MakeNotification({
                 Name = "Dyke Hub | "..Player.UserId.."メ",
@@ -51,7 +56,11 @@ KeySection:AddButton({
                 Image = "rbxassetid://4483345998",
                 Time = 3
             })
-            OrionLib:Destroy()
+            _G.KeyEntered = true
+            wait(1)
+            game.CoreGui.Orion:Destroy()
+            wait(1)
+            loadstring(game:HttpGet(('https://raw.githubusercontent.com/danesplex224466881010/DykeHub/main/Main.lua'),true))()
         else
             OrionLib:MakeNotification({
                 Name = "Dyke Hub | "..Player.UserId.."メ",
@@ -59,23 +68,24 @@ KeySection:AddButton({
                 Image = "rbxassetid://4483345998",
                 Time = 3
             })
+            _G.KeyEntered = false
         end
-  	end    
+      end    
 })
 
 local DiscordTab = Window:MakeTab({
-	Name = "Discord",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+    Name = "Discord",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
 })
 
 local DiscordSection = DiscordTab:AddSection({
-	Name = "Discord"
+    Name = "Discord"
 })
 
 DiscordSection:AddButton({
-	Name = "Copy Invite Link",
-	Callback = function()
+    Name = "Copy Invite Link",
+    Callback = function()
         setclipboard("https://discord.gg/aTj9fyNDc7")
         OrionLib:MakeNotification({
             Name = "Dyke Hub | "..Player.UserId.."メ",
@@ -83,5 +93,5 @@ DiscordSection:AddButton({
             Image = "rbxassetid://4483345998",
             Time = 3
         })
-  	end
+      end
 })
