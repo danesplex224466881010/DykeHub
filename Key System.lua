@@ -86,7 +86,7 @@ local DiscordSection = DiscordTab:AddSection({
 DiscordSection:AddButton({
     Name = "Copy Invite Link",
     Callback = function()
-        setclipboard("https://discord.gg/aTj9fyNDc7")
+        setclipboard("https://discord.gg/ks4d3ZHT9Q")
         OrionLib:MakeNotification({
             Name = "Dyke Hub | "..Player.UserId.."メ",
             Content = "Copied the invite link to your clipboard!",
